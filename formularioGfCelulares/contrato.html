@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="contrato.css">
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+<!--para banco de dados-->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // codigo puxado do firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyDqacSrjWhq_QvhaV0GDrzGORi7IeIFZcM",
+    authDomain: "formulario-df-celulares.firebaseapp.com",
+    databaseURL: "https://formulario-df-celulares.firebaseio.com",
+    projectId: "formulario-df-celulares",
+    storageBucket: "formulario-df-celulares.appspot.com",
+    messagingSenderId: "1094158041523",
+    appId: "1:1094158041523:web:c8a6db8e746014d1298bc6",
+    measurementId: "G-S0SDSZ34JC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+
+</head>
+
+<style>
+ 
+</style>
+<body>
+    <table class="table table-bordered ">
+      <thead>
+        <tr class="table table-hover"><th colspan="7">Dados Do Cliente</th></tr>
+        <tr>
+          <th>N</th>
+          <th>Nome</th>
+          <th>Sobre Nome</th>
+          <th>Email</th>
+          <th>Bairro</th>
+          <th>Endereço</th>
+          <th>telefone</th>
+        </tr>
+      </thead>
+      <tbody id="tabela01"></tbody>
+    </table>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table table-hover"><th colspan="4">Dados do aparelho</th></tr>
+        <tr>
+          <th>Nº</th>
+          <th>Aparelho</th>
+          <th>Modelo</th>
+          <th>Serial</th>
+        </tr>
+      </thead>
+      <tbody id="tabela02"></tbody>
+    </table>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table table-hover"><th colspan="7">Acessorios Que Acompanhão</th></tr>
+        <tr>
+          <th>Nº</th>
+          <th>Bateria</th>
+          <th>Tampa</th>
+          <th>carregador</th>
+          <th>Outros</th>
+          <th>Serial Acessorios</th>
+          <th>Defeito Declarado</th>
+        </tr>
+      </thead>
+      <tbody id="tabela03"></tbody>
+    </table>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table table-hover"><th colspan="5">Data Do Dia Que O Aparelho Foi Deixado</th></tr>
+        <tr>
+          <th>Nº</th>
+          <th>Data Do Orçamento</th>
+          <th>Data De Entrega</th>
+          <th>Valor</th>
+          <th>Tecnico</th>
+        </tr> 
+      </thead>
+      <tbody id="tabela04"></tbody>
+    </table>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table table-hover"><th colspan="3">Assinatura do Tecnico e a do Cliente</th></tr>
+        <tr>
+          <th>Nº</th>
+          <th>Assinatura Do Tecnico</th>
+          <th>Assinatura Do Cliente</th>
+        </tr>
+      </thead>
+      <tbody id="tabela05"></tbody>
+    </table>
+    <div class="termo">
+      <p>
+        O aparelho so sera Entrengue Na Apresentação Desta Via .
+         Não responsabilizamos pela a procedência de aparelho recebido para concerto tambem não nos responsabilizamos
+          por aparelhos não procurados após(90) noventa dias após orçamento o tempo de garantia de 
+          (15)quinze dias a garantia não cobre a (desoxidação) 
+        (violação de lacre de garantia)(resoldagem)(umidade)/(nem mau uso de aparelho).
+      </p>
+      <button   onclick="window.location.href = './index.html'" type="button" class="btn btn-success">Criar Contrato</button>
+      <button   onclick="window.location.href = './listaContrato.html'" type="button" class="btn btn-success">listar contratos</button>
+    </div>
+    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="Contrato.js"></script>
+
+    <script>
+      class appentTr{
+        constructor(){
+          this.code = "";
+        }
+        appent(str){
+          this.code += "<td>"+str+"</td>";
+        }
+        showTo(id){
+          document.getElementById(id).insertAdjacentHTML('beforeend', "<tr>"+this.code+"</tr>");
+        }
+      }
+
+      var urlParams = new URLSearchParams( window.location.search);
+
+      var db = firebase.database();
+      var ref = db.ref("Contratos");
+      ref.child(urlParams.get("path")).once("value").then(function(element){
+        var index = urlParams.get("id");
+          var contrato = new Contrato().parse(element.val());
+          var tabela01 = new appentTr();
+          tabela01.appent(index);
+          tabela01.appent(contrato.nome);
+          tabela01.appent(contrato.sobreNome);
+          tabela01.appent(contrato.email);
+          tabela01.appent(contrato.bairro);
+          tabela01.appent(contrato.endereco);
+          tabela01.appent(contrato.telefone);
+          tabela01.showTo("tabela01");
+          
+          var tabela02 = new appentTr();
+          tabela02.appent(index);
+          tabela02.appent(contrato.aparelho);
+          tabela02.appent(contrato.modelo);
+          tabela02.appent(contrato.serial);
+          tabela02.showTo("tabela02");
+
+          var tabela03 = new appentTr();
+          tabela03.appent(index);
+          tabela03.appent(contrato.tipoAcessorio.includes("bateria") ? "Sim" : "Não");
+          tabela03.appent(contrato.tipoAcessorio.includes("tampa") ? "Sim" : "Não");
+          tabela03.appent(contrato.tipoAcessorio.includes("carregador") ? "Sim" : "Não");
+          tabela03.appent(contrato.tipoAcessorio.includes("outros") ? "Sim" : "Não");
+          tabela03.appent(contrato.serialAcessorios);
+          tabela03.appent(contrato.defeitodeClarado);
+          tabela03.showTo("tabela03");
+
+          var tabela04 = new appentTr();
+          tabela04.appent(index);
+          tabela04.appent(contrato.dataDeOrcamento);
+          tabela04.appent(contrato.dataDeEntrega);
+          tabela04.appent(contrato.valor);
+          tabela04.appent(contrato.tecnico);
+          tabela04.showTo("tabela04");
+
+          var tabela05 = new appentTr();
+          tabela05.appent(index);
+          tabela05.appent(contrato.assinaturaTecnico);
+          tabela05.appent(contrato.assinaturaDoCliente);
+          tabela05.showTo("tabela05");
+      })
+      .catch(function(err){console.log(err)});
+    </script>
+</body>
+</html>
