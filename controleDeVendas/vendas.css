@@ -1,0 +1,49 @@
+.primeiraclasse{
+    background: blue;
+    margin-top: 50px;
+    justify-content: center;
+    
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.vendas{
+    text-align: center;
+
+}
+.cores{
+    width: 30%;
+    height: 300PX;
+    background: rgb(202, 178, 226);
+    margin: auto;
+    margin-top: 80px;
+    height: 600px;
+    flex-direction: column;
+    
+}
+
+.new{
+    
+    margin-top: 20px;
+    padding-left: 46px;
+    margin-right: 140px;
+  
+}
+.testando{
+    margin-left: 30px;
+    flex-direction: column;
+}
+
+.col-form-label{
+   
+    margin-left: 30px;
+    flex-direction: column;
+}
+.form-control{
+    display: block;
+}
+
+    
+    
+  
