@@ -6,54 +6,138 @@
     <title>Document</title>
     <link rel="stylesheet" href="vendas.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <!--para banco de dados-->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBLpfvAXpfhXeUlfc_LPk23b9QDu9LJo_s",
+    authDomain: "vendas-de-produtos-8d244.firebaseapp.com",
+    databaseURL: "https://vendas-de-produtos-8d244.firebaseio.com",
+    projectId: "vendas-de-produtos-8d244",
+    storageBucket: "vendas-de-produtos-8d244.appspot.com",
+    messagingSenderId: "986957539263",
+    appId: "1:986957539263:web:0b3d043a60687f424d630a",
+    measurementId: "G-4TDZ49D648"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+    
 </head>
 <body>
    
     <div class="cores">
 
     
-       <div class="vendas" >
-           <h1>vendas</h1>
-       </div>
+       
+           <h1 class="vendas">vendas</h1>
+       
        
         <div class="new" >
            
             <select  class="custom-select my-4 mr-sm-4" id="inlineFormCustomSelectPref">
 
                 <option selected>Selecione um Produto...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+                <option value="1">salgado</option>
+                <option value="2">regrigerante</option>
+                <option value="3">refresco</option>
+
+            </select>
+
               </div>
           
 
               <div class="col-sm-8">
                   
-                <label style="padding-left: 1px;" for="inputQuantidade" class="col-sm-2 col-form-label">Quatidade:</label>
+                <label  style="padding-left: 1px;" for="inputQuantidade" class="col-sm-2 col-form-label">Quatidade:</label>
            
-                <input style="margin-left: 30px;" type="quantidade" class="form-control"  id="inputQuantidade">
-
-                <label style="padding-left: 1px;"  for="inputQuantidade" class="col-sm- col-form-label"><br>Preço Unitario: </label>
-
-                <input style="margin-left: 30px;"  type="quantidade" class="form-control" id="inputQuantidade">
+                <input  style="margin-left: 30px;" type="quantidade" class="form-control"  id="inputQuantidade">
                 
-                <label style="padding-left: 1px;"  for="inputQuantidade" class="col-sm col-form-label"><br>Total venda:</label>
+                <label style="padding-left: 1px;"  for="inputPrecoUnitario" class="col-sm- col-form-label"><br>Preço Unitario: </label>
 
-                <input style="margin-left: 30px;"  type="quantidade" class="form-control" id="inputQuantidade">
-
+                <input style="margin-left: 30px;"  type="precoUnitario" class="form-control" id="inputPrecoUnitario">
                 
-               
-  
-      
+                <label style="padding-left: 1px;"  for="inputTotalVenda" class="col-sm col-form-label"><br>Total venda:</label>
+
+                <input style="margin-left: 30px;"  type="totalVenda" class="form-control" id="inputTotalVenda">
+
+                <label style="padding-left: 1px;"   for="inputDataDeVenda" class="col-sm- col-form-label"><br>Data de venda:</label>
+
+                <input style="margin-left: 30px;"  type="date" class="form-control " id="inputDataDeVenda" required>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary">Confirma Compra</button>
+                <button type="button" class="btn btn-success">Cacelar Compra</button>
+            </div>
+
+        <div>
         
-        <label style="padding-left: 1px;"   for="inputQuantidade" class="col-sm- col-form-label"><br>Data de venda:</label>
+        </div>
 
-        <input style="margin-left: 30px;"  type="date" class="form-control testadoo" id="validationCustom11" required>
-   </div>
+        
+   
 </div>
        
-     
+<script src="vendas.js"></script>
+<script>
+  //ela chama o banco de dados firebase
+  var db = firebase.database();
+  //uma referencia onde esta chamando o banco de dados
+  var rootRef = db.ref("vendas");
+ 
+  // filho da referencia
+  
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          event.stopPropagation();
+        if (form.checkValidity() === false) {
+          form.classList.add('was-validated');
+        }else{
+          var quantidade = document.getElementById('inputQuantidade').value;
+          var precoUnitario = document.getElementById('inputPrecoUnitario').value;
+          var totalVenda = document.getElementById('inputTotalVenda').value;
+          var DataDeVenda = document.getElementById('inputDataDeVenda').value;
+    
+          var vendas = new venda (quantidade, precoUnitario, totalVenda, DataDeVenda);    
+           //função criada para que o dados e enviado automaricamente          
+            rootRef.push(venda.toJson())
+            .then(function(el){
+              window.location.href = "./venda.html?path="+el.key+"&id="+1;
+            })
+            .catch(function(err){console.log(err)});
+           }
+       
+        
+      }, false);
+    });
+  }, false);
+})();
+
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

@@ -10,18 +10,22 @@ body{
 
 .vendas{
     text-align: center;
+    font-size: 50px;
 
 }
 .cores{
     width: 30%;
     height: 300PX;
-    background: rgb(202, 178, 226);
+    background: rgb(197, 188, 206);
     margin: auto;
     margin-top: 80px;
-    height: 600px;
+    height: 700px;
     flex-direction: column;
-    
+    margin-bottom: 30px;
+    border-radius: 20px;
 }
+
+
 
 .new{
     
@@ -42,7 +46,23 @@ body{
 }
 .form-control{
     display: block;
+    border-radius: 53px;
 }
+.form-control > input:hover{
+    background: red;
+}
+.btn-primary{
+    margin-top: 40px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+}
+.btn-success{
+      margin-top: 40px;
+    margin-left: 30px;
+ 
+}
+
 
     
     
