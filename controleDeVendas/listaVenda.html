@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="listaVenda.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <table class="table table-bordered ">
+        <thead>
+          <tr class="table table-hover"><th colspan="7">Dados de Venda</th></tr>
+          <tr>
+            <th>Produto</th>
+            <th>Quatidade </th>
+            <th>Preço Unitario</th>
+            <th>Total da Venda</th>
+            <th>Data De Venda</th>
+          </tr>
+        </thead>
+        <tbody id="tabela01"></tbody>
+      </table>
+     
+    
+      
+      
+      <div class="termo">
+       
+        <button   onclick="window.location.href = './index.html'" type="button" class="btn btn-success">Calcular Venda</button>
+   
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <script src="vendas.js"></script>
+      <script>
+          
+      class appentTr{
+        constructor(){
+          this.tr = document.createElement("tr");
+          this.id = 0;
+        }
+        onClick(fn){
+            if(typeof fn === "function"){
+                this.tr.onclick = fn;
+            }
+        }
+        appent(str){
+          var td = document.createElement("td");
+            td.appendChild(document.createTextNode(str));
+          this.tr.appendChild(td);
+        }
+        showTo(id){
+          document.getElementById(id).appendChild(this.tr);
+        }
+      }
+
+      var db = firebase.database();
+      var ref = db.ref("venda");
+      ref.once("value").then(function(contratos){
+        var index = 1;
+        contratos.forEach(element => {
+          var venda = new venda().parse(element.val());
+          var tabela01 = new appentTr();
+          tabela01.appent(index);
+          tabela01.appent(venda.quantidade);
+          tabela01.appent(venda.precoUnitario);
+          tabela01.appent(venda.totalVenda);
+          tabela01.appent(venda.DataDeVenda);
+          tabela01.id = index;
+          tabela01.onClick(function(){
+            window.location.href = "./venda.html?path="+element.key+"&id="+tabela01.id;
+          });
+          tabela01.showTo("tabela01");
+          
+          console.log(venda);
+          index++;
+        });    
+      })
+      .catch(function(err){console.log(err)});
+    </script>
+</body>
+</html>
