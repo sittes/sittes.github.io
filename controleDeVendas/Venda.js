@@ -1,5 +1,6 @@
-class venda{
-    constructor(quantidade, precoUnitario, totalVenda,DataDeVenda){
+class Venda{
+    constructor(quantidade, precoUnitario, totalVenda,DataDeVenda,selecionarProduto){
+          this.selecionarProduto = selecionarProduto;
           this.quantidade = quantidade;
           this.precoUnitario = precoUnitario;
           this.totalVenda = totalVenda;

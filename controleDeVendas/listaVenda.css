@@ -3,10 +3,15 @@ body{
     width: 100%;
 }
 
+.content{
+    width: 95%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 table{
     table-layout: auto;
-    width: 95%;
-
+    width: 100%;
 }
 
 table td{
@@ -52,11 +57,14 @@ table, td, th{
    margin-left: 5.0rem;
 }
 
-.btn-primary{
-    margin-left: 120px;
+.termo{
+    width: 100%;
+    position: relative;
+    padding: 15px 0;
 }
-.btn-success{
-    margin-left: 118px;
-    margin-top: -25px;
+
+.largura{
+    width: 100%;
+    max-width: 300px;
 }
 
