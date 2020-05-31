@@ -38,21 +38,22 @@
       <label style="padding-left: 1px;" for="inputDataDeVenda" class="col-sm- col-form-label"><br>Data:</label>
       <input type="date" class="form-control " id="inputDataDeVenda" />
     </div>
-    <table class="table table-bordered ">
-      <thead>
-        <tr class="table table-hover">
-          <th colspan="7">Dados de Venda</th>
-        </tr>
-        <tr>
-          <th>Produto</th>
-          <th>Quatidade </th>
-          <th>Preço Unitario</th>
-          <th>Total da Venda</th>
-          <th>Data De Venda</th>
-        </tr>
-      </thead>
-      <tbody id="tabela01"></tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="table table-bordered ">
+        <thead>
+          <tr class="table table-hover">
+            <th colspan="7">Dados de Venda</th>
+          </tr>
+          <tr>
+            <th>Produto</th>
+            <th>Quatidade </th>
+            <th>Preço Unitario</th>
+            <th>Total da Venda</th>
+          </tr>
+        </thead>
+        <tbody id="tabela01"></tbody>
+      </table>
+    </div>
     <label for="inputTotalVenda" class="col-form-label">Total venda:</label>
     <input disabled="true" type="text" class="form-control" id="inputTotalVenda" />
     <div class="termo">
@@ -118,7 +119,6 @@
             tabela01.appent(venda.quantidade);
             tabela01.appent(venda.precoUnitario);
             tabela01.appent(venda.totalVenda);
-            tabela01.appent(venda.DataDeVenda);
             tabela01.showTo("tabela01");
             index += 1;
           }
