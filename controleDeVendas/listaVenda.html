@@ -53,6 +53,8 @@
       </thead>
       <tbody id="tabela01"></tbody>
     </table>
+    <label for="inputTotalVenda" class="col-form-label">Total venda:</label>
+    <input disabled="true" type="text" class="form-control" id="inputTotalVenda" />
     <div class="termo">
       <button onclick="window.location.href = './index.html'" type="button" class="btn btn-success">Adicionar
         Venda</button>
@@ -77,6 +79,7 @@
       return date.getFullYear() + "-" + toFixed(date.getMonth() + 1) + "-" + toFixed(date.getDate());
     }
 
+    var totalVenda = document.getElementById('inputTotalVenda');
     var DataDeVenda = document.getElementById('inputDataDeVenda');
     DataDeVenda.value = getDateValue();
 
@@ -105,12 +108,12 @@
     var getVendas = function () {
       new appentTr().clear("tabela01");
       ref.once("value").then(function (element) {
-        var index = 0;
+        var index = 0, total = 0;
         element.forEach(function (ell) {
           var venda = new Venda().parse(ell.val());
           if (venda.DataDeVenda === DataDeVenda.value) {
             var tabela01 = new appentTr();
-            tabela01.appent(index);
+            total += Number(venda.totalVenda) || 0;
             tabela01.appent(venda.selecionarProduto)
             tabela01.appent(venda.quantidade);
             tabela01.appent(venda.precoUnitario);
@@ -120,6 +123,7 @@
             index += 1;
           }
         });
+        totalVenda.value = total;
       })
         .catch(function (err) { console.log(err) });
     }

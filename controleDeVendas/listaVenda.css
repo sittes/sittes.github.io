@@ -7,6 +7,11 @@ body{
     width: 95%;
     max-width: 800px;
     margin: 0 auto;
+    background: rgb(197, 188, 206);
+    border-radius: 20px;
+    padding: 15px 30px;
+    margin-top: 80px;
+    margin-bottom: 30px;
 }
 
 table{
