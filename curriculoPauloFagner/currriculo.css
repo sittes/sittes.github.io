@@ -69,12 +69,6 @@ body {
     box-shadow: 2px 2px 3px 5px rgba(0, 255, 255, 0.2)
   }
   
-  #cuadrofoto {
-    float: right;
-    width: 65%;
-    padding-right: 30px;
-    padding-top: 5%;
-  }
   
   #foto {
     box-shadow: 2px 2px 3px 3px #666;

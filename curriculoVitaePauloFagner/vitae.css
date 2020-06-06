@@ -1,0 +1,260 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+body{
+  font-family:lato, helvetica, arial, sans-serif; 
+  transform: translate3d(0px, 0px, 0px);
+  margin 0;
+  background-image: 
+     linear-gradient(0deg, rgba(0, 153, 204, .1) 1px, transparent 1px),
+     linear-gradient(90deg, rgba(0, 153, 204, .1) 1px, transparent 1px);
+  background-size:20px 20px;
+  background-color:#232323;
+  margin: 1% 0;
+}
+nav{
+  position:relative;
+  margin: 1% 5% 10% 5%;
+}
+nav>li{
+  padding:4px;
+}
+.title{
+  margin: auto 0 0 0;
+ 
+}
+.block-personal-data{
+  width:100%; height: 250px;  position: relative; overflow:hidden ; padding:120px 0;
+}
+.block-personal-data:after,.block-personal-data:before{ content: '';
+  /*azul*/
+  background: #08b;
+  position: absolute; top: 0;bottom:0; right: 10%; left:-10%;
+  width: 120%;  
+  height: 75%; 
+  margin: auto; 
+  transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+  z-index:-1;
+}
+.block-personal-data:before{ 
+  content: ''; 
+  transform: rotate(4deg);
+  -webkit-transform: rotate(4deg);
+  -moz-transform: rotate(4deg);
+  -o-transform: rotate(4deg);
+}
+@media all and (max-width: 1000px){
+  .block-personal-data:after{ -o-transform: rotate(-5deg);}
+  .block-personal-data:before{ -o-transform: rotate(5deg);}
+}
+@-webkit-media all and (max-width: 1000px){
+  .block-personal-data:after{ -webkit-transform: rotate(-5deg);}
+  .block-personal-data:before{ -webkit-transform: rotate(5deg);}
+}
+@-moz-media all and (max-width: 1000px){
+  .block-personal-data:after{ -moz-transform: rotate(-5deg);}
+  .block-personal-data:before{ -moz-transform: rotate(5deg);}
+}
+@-o-media all and (max-width: 1000px){
+  .block-personal-data:after{ -o-transform: rotate(-5deg);}
+  .block-personal-data:before{ -o-transform: rotate(5deg);}
+}
+
+h1{
+  text-align:center;
+  font-weight:300;
+  color: #fff; 
+  margin:0;}
+nav.personal-data>li h1{
+  color: #fff;
+  font-weight:400;
+  font-size: 32px;
+  padding-bottom: 10px;
+}
+nav.personal-data>li{
+  list-style:none;
+  text-align:center;
+  color:#ccc
+}
+/*-----------------------------------------------------------Otros Datos---------------------------------------------------------------*/
+.block-2-column{
+  width:100%; height: 250px;  position: relative; overflow:hidden ; padding:120px 0; 
+  margin: -90px 0 0 0;
+}
+.block-2-column:after{content:'';
+  position:absolute;top: 0;bottom:0 ; left:0;
+  /*Verde*/
+  background:#3a3;
+  width:50.1%;
+  height:80%;
+  margin: auto;
+  transform: skew(0,-4deg);
+  -webkit-transform: skew(0deg,-4deg);
+  -moz-transform: skew(0deg,-4deg);
+  -o-transform: skew(0deg,-4deg);
+  z-index:-1;
+}
+.block-2-column:before{content:'';
+  position:absolute;top: 0;bottom:0 ; right:0;
+  /*Verde*/
+  background:#3a3;
+  width:50.1%;
+  height:80%;
+  margin: auto;
+  transform: skew(0deg,4deg);
+  -webkit-transform: skew(0deg,4deg);
+  -moz-transform: skew(0deg,4deg);
+  -o-transform: skew(0deg,4deg);
+  z-index:-1;}
+@media all and(max-width:1000px){
+  .block-2-column:after{transform:skew(0deg,-8deg);}
+  .block-2-column:before{transform:skew(0deg,8deg);}
+}
+@-webkit-media all and(max-width:1000px){
+  .block-2-column:after{-webkit-transform:skew(0deg,-8deg);}
+  .block-2-column:before{-webkit-transform:skew(0deg,8deg);}
+}
+@-moz-media all and(max-width:1000px){
+  .block-2-column:after{-moz-transform:skew(0deg,-8deg);}
+  .block-2-column:before{-moz-transform:skew(0deg,8deg);}
+}
+@-o-media all and(max-width:1000px){
+  .block-2-column:after{-o-transform:skew(0deg,-8deg);}
+  .block-2-column:before{-o-transform:skew(0deg,8deg);}
+}
+div.block-work-experience>div.title>h1{
+  color:white;
+  position:relative;
+}
+nav.work-experience>li{
+  list-style:none;
+  color: #242;
+ 
+}
+.block-work-experience, .block-academic-formation{
+  width: 50%;
+  height: 90%;
+  margin: 10% 0 5% 0;
+}
+.block-academic-formation{
+  position: absolute; top:0; right:0; bottom:0;
+}
+.block-work-experience{
+  position: absolute; top:0; left:0; bottom:0;
+}
+
+
+/*---------------Ultima Fila--------------------------*/
+.block-3-column{
+  widht:100%;
+  height:320px;
+  position:relative;
+  overflow:hidden;
+  padding:120px 0;
+  margin: -150px 0 0 0;
+}
+.block-3-column:after,.block-3-column:before{content:'';
+  /*Color moradito XD*/
+  background:#3f51b5;
+  position: absolute; top: 0;bottom:0; right: 10%; left:-10%;
+  width: 120%;  
+  height: 75%; 
+  margin: auto; 
+  transform: skew(0deg,4deg);
+  -webkit-transform: skew(0deg,4deg);
+  -moz-transform: skew(0deg,4deg);
+  -o-transform: skew(0deg,4deg);
+  z-index:-2;
+}
+.block-3-column:before{content:'';
+  transform: skew(0deg,4deg);
+  -webkit-transform: skew(0deg,4deg);
+  -moz-transform: skew(0deg,4deg);
+  -o-transform: skew(0deg,4deg);
+}
+@media all and(max-width:1000px){
+  .block-3-column:after{transform: skew(0deg,4deg);}
+  .block-3-column:before{transform: skew(0deg,4deg);}
+}
+@-webkit-media all and(max-width:1000px){
+  .block-3-column:after{-webkit-transform: skew(0deg,4deg);}
+  .block-3-column:before{-webkit-transform: skew(0deg,4deg);}
+}
+@-moz-media all and(max-width:1000px){
+  .block-3-column:before{-moz-transform: skew(0deg,4deg);}
+  .block-3-column:after{-moz-transform: skew(0deg,4deg);}
+}
+@-o-media all and(max-width:1000px){
+  .block-3-column:before{-o-transform: skew(0deg,4deg);}
+  .block-3-column:after{-o-transform: skew(0deg,4deg);}
+}
+.block-extra-academic,
+.block-lenguaje,
+.block-informatic{
+  width:33%;
+  position: absolute; top:0; bottom:0;
+  margin: 10% 0 5% 0;
+  margin-left: 60px;
+}
+.block-extra-academic{
+  left:0px;
+}
+.block-lenguaje{
+  left:33%;
+}
+.block-informatic{
+  right:0px;
+  margin-right: 50px;
+}
+div.block-3-column li{
+  color:#ccc;
+}
+h2{
+  color:white;
+  text-align:left;
+  font-weight:300; 
+  font-size:18px;
+  margin:0;
+}
+.column1,.column2{
+  width:49%;
+  margin:10% auto auto auto;
+  position:absolute; top:0; bottom:0;
+}
+.column1{
+  left:0;
+}
+.column2{
+  right:0;
+}
+.column1 nav>li{
+  display: inline;
+}
+#cuadrofoto{
+        float: right;
+        width: 54%;
+        height: 100%;
+        padding-right: 30px;
+        padding-top: 5%;
+}
+#foto {
+  box-shadow: 2px 2px 3px 3px #666;
+  width: 170px;
+  border-radius: 100%;
+  transition: all 0.5s linear;
+}
+
+#foto:hover {
+  border-radius: 20%;
+  transition: all 0.5s cubic-bezier(.29, .44, .94, 1.43);
+  width: 45%;
+}
+.info{
+  margin-right: 300px;
+  margin-bottom: 20px;
+}
+.idi{
+  margin-right: 300px;
+  margin-bottom: 20px
+}
