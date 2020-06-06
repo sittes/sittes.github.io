@@ -44,6 +44,7 @@ body {
     border-radius: 10px;
     padding-left: 10px;
     transition: all 0.5s linear;
+    
   }
   
   .fa-linkedin-square:hover {
@@ -72,9 +73,11 @@ body {
   
   #foto {
     box-shadow: 2px 2px 3px 3px #666;
-    width: 170px;
+    width: 70px;
     border-radius: 100%;
     transition: all 0.5s linear;
+    margin-left: 600px;
+    
   }
   
   #foto:hover {
@@ -127,3 +130,5 @@ body {
   #correo:hover {
     cursor: pointer
   }
+
+ 
