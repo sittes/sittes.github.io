@@ -15,5 +15,5 @@ $('.card').each(function () {
 const contactMe = document.querySelector("#contactMe");
 
 contactMe.onclick = ()=>{
-    window.open("https://api.whatsapp.com/send?phone=5531993581414",'_blank');
+    window.open("https://api.whatsapp.com/send?phone=553192045012",'_blank');
   }
