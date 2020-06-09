@@ -10,8 +10,8 @@ html, body {
 }
 
 body {
-  width: 130%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   padding: 40px;
   margin: 0;
   background-color: #e0e0e2;
