@@ -1,114 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="contrato.css">
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/contrato.css">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
-<!--para banco de dados-->
-<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  // codigo puxado do firebase
-  var firebaseConfig = {
-    apiKey: "AIzaSyDqacSrjWhq_QvhaV0GDrzGORi7IeIFZcM",
-    authDomain: "formulario-df-celulares.firebaseapp.com",
-    databaseURL: "https://formulario-df-celulares.firebaseio.com",
-    projectId: "formulario-df-celulares",
-    storageBucket: "formulario-df-celulares.appspot.com",
-    messagingSenderId: "1094158041523",
-    appId: "1:1094158041523:web:c8a6db8e746014d1298bc6",
-    measurementId: "G-S0SDSZ34JC"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+  <!--para banco de dados-->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    // codigo puxado do firebase
+    var firebaseConfig = {
+      apiKey: "AIzaSyDqacSrjWhq_QvhaV0GDrzGORi7IeIFZcM",
+      authDomain: "formulario-df-celulares.firebaseapp.com",
+      databaseURL: "https://formulario-df-celulares.firebaseio.com",
+      projectId: "formulario-df-celulares",
+      storageBucket: "formulario-df-celulares.appspot.com",
+      messagingSenderId: "1094158041523",
+      appId: "1:1094158041523:web:c8a6db8e746014d1298bc6",
+      measurementId: "G-S0SDSZ34JC"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
   </script>
-    <title>listar contratot</title>
+  <title>listar contratot</title>
 </head>
+
 <body>
-   
-    <table class="table table-bordered table-event-mouse">
-        <thead>
-          <tr class="table table-hover"><th colspan="7">Dados Do Cliente</th></tr>
-          <tr>
-            <th>N</th>
-            <th>Nome</th>
-            <th>Sobre Nome</th>
-            <th>Email</th>
-            <th>Bairro</th>
-            <th>Endereço</th>
-            <th>telefone</th>
-          </tr>
-        </thead>
-        <tbody id="tabela01"></tbody>
-      </table>
-      <button   onclick="window.location.href = './index.html'" type="button" class="btn btn-primary">Criar Contrato</button>
-    
-   
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <table class="table table-bordered table-event-mouse">
+    <thead>
+      <tr class="table table-hover">
+        <th colspan="7">Dados Do Cliente</th>
+      </tr>
+      <tr>
+        <th>N</th>
+        <th>Nome</th>
+        <th>Sobre Nome</th>
+        <th>Email</th>
+        <th>Bairro</th>
+        <th>Endereço</th>
+        <th>telefone</th>
+      </tr>
+    </thead>
+    <tbody id="tabela01"></tbody>
+  </table>
+  <button onclick="window.location.href = './telaCadastroContrato.html'" type="button" class="btn btn-primary">Criar
+    Contrato</button>
 
-    <script src="Contrato.js"></script>
-      <script>
-          
-      class appentTr{
-        constructor(){
-          this.tr = document.createElement("tr");
-          this.id = 0;
-        }
-        onClick(fn){
-            if(typeof fn === "function"){
-                this.tr.onclick = fn;
-            }
-        }
-        appent(str){
-          var td = document.createElement("td");
-            td.appendChild(document.createTextNode(str));
-          this.tr.appendChild(td);
-        }
-        showTo(id){
-          document.getElementById(id).appendChild(this.tr);
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script src="./scripts/models/FirestoreObject.js"></script>
+  <script src="./scripts/models/Contrato.js"></script>
+  <script>
+
+    class appentTr {
+      constructor() {
+        this.tr = document.createElement("tr");
+        this.id = 0;
+      }
+      onClick(fn) {
+        if (typeof fn === "function") {
+          this.tr.onclick = fn;
         }
       }
+      appent(str) {
+        var td = document.createElement("td");
+        td.appendChild(document.createTextNode(str));
+        this.tr.appendChild(td);
+      }
+      showTo(id) {
+        document.getElementById(id).appendChild(this.tr);
+      }
+    }
 
-      var db = firebase.database();
-      var ref = db.ref("Contratos");
-      ref.once("value").then(function(contratos){
-        var index = 1;
-        contratos.forEach(element => {
-          var contrato = new Contrato().parse(element.val());
-          var tabela01 = new appentTr();
-          tabela01.appent(index);
-          tabela01.appent(contrato.nome);
-          tabela01.appent(contrato.sobreNome);
-          tabela01.appent(contrato.email);
-          tabela01.appent(contrato.bairro);
-          tabela01.appent(contrato.endereco);
-          tabela01.appent(contrato.telefone);
-          tabela01.id = index;
-          tabela01.onClick(function(){
-            window.location.href = "./contrato.html?path="+element.key+"&id="+tabela01.id;
-          });
-          tabela01.showTo("tabela01");
-          
-          console.log(contrato);
-          index++;
-        });    
-      })
-      .catch(function(err){console.log(err)});
-    </script>
+    var db = firebase.database();
+    var ref = db.ref("Contratos");
+    ref.once("value").then(function (contratos) {
+      var index = 1;
+      contratos.forEach(element => {
+        var contrato = new Contrato().parse(null, element.val());
+        var tabela01 = new appentTr();
+        tabela01.appent(index);
+        tabela01.appent(contrato.nome);
+        tabela01.appent(contrato.sobreNome);
+        tabela01.appent(contrato.email);
+        tabela01.appent(contrato.bairro);
+        tabela01.appent(contrato.endereco);
+        tabela01.appent(contrato.telefone);
+        tabela01.id = index;
+        tabela01.onClick(function () {
+          window.location.href = "./contrato.html?path=" + element.key + "&id=" + tabela01.id;
+        });
+        tabela01.showTo("tabela01");
 
-
-      </script>
+        console.log(contrato);
+        index++;
+      });
+    })
+      .catch(function (err) { console.log(err) });
+  </script>
 </body>
 
 

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/telaDeCadastro.css">
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyDqacSrjWhq_QvhaV0GDrzGORi7IeIFZcM",
+            authDomain: "formulario-df-celulares.firebaseapp.com",
+            databaseURL: "https://formulario-df-celulares.firebaseio.com",
+            projectId: "formulario-df-celulares",
+            storageBucket: "formulario-df-celulares.appspot.com",
+            messagingSenderId: "1094158041523",
+            appId: "1:1094158041523:web:c8a6db8e746014d1298bc6",
+            measurementId: "G-S0SDSZ34JC"
+        });
+        firebase.analytics();
+    </script>
+    <script src="./scripts/MultiStorager.js"></script>
+    <script src="./scripts/models/FirestoreObject.js"></script>
+    <script src="./scripts/models/Usuario.js"></script>
+    <script src="./scripts/helpers/Usuario.js"></script>
+</head>
+<body>
+  <ul class="nav">
+    <li onclick="showLogin()">Conecte-se</li>
+    <li onclick="showSignup()">Inscrever-se</li>
+    <li onclick="showForgotPassword()">Esqueceu a senha</li>
+    <li onclick="showSubscribe()" style="display: none;">Se inscrever</li>
+    <li onclick="showContactUs()">Fale conosco</li>
+  </ul>
+  <div class="wrapper">
+    <div class="rec-prism">
+      <div class="face face-top">
+        <div class="content">
+          <h2>Se inscrever</h2>
+          <small>Digite seu e-mail para que possamos enviar as últimas atualizações!</small>
+          <form onsubmit="event.preventDefault()">
+            <div class="field-wrapper">
+              <input type="text" name="email" placeholder="email">
+              <label>e-mail</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="submit" onclick="showThankYou()">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="face face-front">
+        <div class="content">
+          <h2>Login</h2>
+          <form id="login">
+            <div class="field-wrapper">
+              <input type="text" name="email" placeholder="email">
+              <label>email</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="password" name="password" placeholder="password" autocomplete="new-password">
+              <label>senha</label>
+            </div>
+            <div class="field-wrapper">
+              <a class="button" href="#" onclick="showThankYou(); login();">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Entrar
+              </a>
+            </div>
+            <div class="field-wrapper" style="display: none;">
+              <input type="submit" onclick="showThankYou()">
+            </div>
+           
+            <span class="psw" onclick="showForgotPassword()">esqueceu a senha?   </span>
+            <span class="signup" onclick="showSignup()">não é usuário?   cadastre se</span>
+          </form>
+        </div>
+      </div>
+      <div class="face face-back">
+        <div class="content">
+          <h2>Esqueceu sua senha?</h2>
+          <small>Digite seu e-mail para que possamos enviar um link de redefinição para sua senha</small>
+          <form onsubmit="event.preventDefault()">
+            <div class="field-wrapper">
+              <input type="text" name="email" placeholder="email">
+              <label>e-mail</label>
+            </div>
+            <div class="field-wrapper">
+              <a class="button" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Enviar
+              </a>
+            </div>
+            <div class="field-wrapper" style="display: none;">
+              <input type="submit" onclick="showThankYou()">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="face face-right">
+        <div class="content">
+          <h2>Cadastrar</h2>
+          <form id="cadastrarsuario">
+            <div class="field-wrapper">
+              <input type="text" name="nome" placeholder="nome">
+              <label>nome</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="text" name="sobreNome" placeholder="sobre nome">
+              <label>sobre nome</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="text" name="telefone" placeholder="telefone">
+              <label>telefone</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="text" name="email" placeholder="email">
+              <label>e-mail</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="password" name="password" placeholder="password" autocomplete="new-password">
+              <label>senha</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="password" name="password2" placeholder="password" autocomplete="new-password">
+              <label>digite novamente sua senha</label>
+            </div>
+            <div class="field-wrapper">
+              <a class="button" href="#" onclick="showThankYou(); cadastrarsuario();">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Cadastrar
+              </a>
+            </div>
+            <div class="field-wrapper" style="display: none;">
+              <input type="submit" onclick="showThankYou()">
+            </div>
+            <span class="singin" onclick="showLogin()">Already a user?   cadastre se</span>
+          </form>
+        </div>
+      </div>
+      <div class="face face-left">
+        <div class="content">
+          <h2>Fale conosco</h2>
+          <form onsubmit="event.preventDefault()">
+            <div class="field-wrapper">
+              <input type="text" name="name" placeholder="name">
+              <label>Nome</label>
+            </div>
+            <div class="field-wrapper">
+              <input type="text" name="email" placeholder="email">
+              <label>e-mail</label>
+            </div>
+            <div class="field-wrapper">
+              <textarea placeholder="your message"></textarea>
+              <label>Sua menssagem</label>
+            </div>
+            <div class="field-wrapper">
+              <a class="button" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Enviar
+              </a>
+            </div>
+            <div class="field-wrapper" style="display: none;">
+              <input type="submit" onclick="showThankYou()">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="face face-bottom">
+        <div class="content">
+          <div class="thank-you-msg">
+            Thank you!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+        
+        <script src="./scripts/telaDeCadastro.js"></script>
+</body>
+</html>

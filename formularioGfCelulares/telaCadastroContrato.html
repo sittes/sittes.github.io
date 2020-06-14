@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/gfcelulares.css">
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+<!--para banco de dados-->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // codigo puxado do firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyDqacSrjWhq_QvhaV0GDrzGORi7IeIFZcM",
+    authDomain: "formulario-df-celulares.firebaseapp.com",
+    databaseURL: "https://formulario-df-celulares.firebaseio.com",
+    projectId: "formulario-df-celulares",
+    storageBucket: "formulario-df-celulares.appspot.com",
+    messagingSenderId: "1094158041523",
+    appId: "1:1094158041523:web:c8a6db8e746014d1298bc6",
+    measurementId: "G-S0SDSZ34JC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+ 
+</head>
+<body>
+  
+    <div class="container" >
+    <form class="needs-validation " novalidate class="formulario-one" >
+      <div class="simbolo container">
+
+        <button class="botoes button btn btn-success" onclick="window.location.href = './listaContrato.html'" type="button">listar contratos</button>
+        
+      </div>
+        <h1 class="geralagaone">Dados do Cliente</h1>
+       
+        <div class="ajuste">
+        <div class="form-row">
+            
+          <div class="col-md-4 mb-3" >
+              
+            <label for="validationCustom01">Nome:</label>
+            <input type="text" class="form-control" id="validationCustom01" value="" placeholder="nome" required>
+            <div class="invalid-feedback">
+              por favor forneça o nome.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom02">Sobre Nome:</label>
+            <input type="text" class="form-control" id="validationCustom02" value="" placeholder="sobre nome"required>
+            <div class="invalid-feedback">
+              por favor forneça o sobre nome.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustomUsername" >Email:</label>
+            
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend" >@</span>
+              </div>
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"  placeholder="email"  required>
+              <div class="invalid-feedback">
+                por favor forneça o email.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="city">
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom03">Bairro:</label>
+            <input type="text" class="form-control" id="validationCustom03" placeholder="bairro" required>
+            <div class="invalid-feedback">
+              por favor forneça o bairro.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom04">Endereço:</label>
+            <input type="text" class="form-control" id="validationCustom04" placeholder="endereço" required>
+            <div class="invalid-feedback">
+              por favor forneça o endereço.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom05">Telefone:</label>
+            <input type="text" class="form-control" id="validationCustom05" placeholder="telefone" required>
+            <div class="invalid-feedback">
+              por favor forneça o telefone.
+            </div>
+          </div>
+        </div>
+    </div>
+    <h1 class="dados geralagaone">Dados Do Aparelho</h1>
+    <div class="city">
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom06">Aparelho:</label>
+            <input type="text" class="form-control" id="validationCustom06" placeholder="aparelho" required>
+            <div class="invalid-feedback">
+              por favor forneça o aparelho.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom07">Modelo:</label>
+            <input type="text" class="form-control" id="validationCustom07" placeholder="modelo" required>
+            <div class="invalid-feedback">
+              por favor forneça o medelo.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom08">Serial:</label>
+            <input type="text" class="form-control" id="validationCustom08" placeholder="serial" required>
+            <div class="invalid-feedback">
+              por favor forneça o serial.
+            </div>
+          </div>
+        </div>
+    </div>
+    <h1 class="marcadorone ">Acessórios que acompanhão</h1>
+    <div class="marcador">
+    <div class="custom-control custom-checkbox custom-control-inline ">
+        <input type="checkbox" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline1" style="margin-right: 0px;">Bateria</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="customRadioInline2" name="customRadioInline2" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline2" style="margin-right: 0px;">Tampa</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="customRadioInline3" name="customRadioInline3" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline3" style="margin-left: 10px;">Carregador</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" id="customRadioInline4" name="customRadioInline4" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline4" style="margin-left: 10px;">Outros</label>
+        
+      </div>
+      
+    </div>
+    <div class="checar">
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom09">Serial acessorios: </label>
+          <input type="text" class="form-control" id="validationCustom09" placeholder="serial acessorio" required>
+          <div class="invalid-feedback">
+            por favor forneça serial acessorios.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom10">Defeito Declarado:</label>
+          <input type="text" class="form-control" id="validationCustom10" placeholder="Defeito declarado" required>
+          <div class="invalid-feedback">
+            por favor forneça o defeito declarado.
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <h1 class="agazero">Data do dia que o aparelho foi deixado</h1>
+    <div class="form-row horario">
+      <div class="col-md-6 mb-3">
+        
+        <label for="validationCustom11">Data de Orçamento:</label>
+        <input type="date" class="form-control testadoo" id="validationCustom11" required>
+        <div class="invalid-feedback">
+          por favor forneça a data do orçamento.
+        </div>
+     
+  </div>
+  <div class="col-md-6 mb-3">
+   
+            <label for="validationCustom12">Data de entrega:</label>
+            <input type="date" class="form-control testado" id="validationCustom12" required>
+            <div class="invalid-feedback">
+              por favor forneça a data de entrega.
+            </div>
+      
+      </div>
+    </div>
+<div class="checar">
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom13">Valor: </label>
+          <input type="text" class="form-control" id="validationCustom13" placeholder="Valor$" required>
+          <div class="invalid-feedback">
+            por favor forneça o valor.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom14">Tecnico:</label>
+          <input type="text" class="form-control" id="validationCustom14" placeholder="Tecnico" required>
+          <div class="invalid-feedback">
+            por favor forneça assinatura do tecnico.
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <p class="via">O aparelho so sera Entrengue Na Apresentação Desta Via .
+        Não responsabilizamos pela a procedência de aparelho recebido para concerto
+     tambem não nos responsabilizamos por aparelhos não procurados após(90) noventa 
+     dias após orçamento o tempo de garantia de (15)quinze dias a garantia não cobre a (desoxidação) 
+        (violação de lacre de garantia)(resoldagem)(umidade)/(nem mau uso de aparelho).
+    </p>
+    <div class="checar">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom015">Assinatura do Tecnico: </label>
+              <input type="text" class="form-control" id="validationCustom15" placeholder="assinatura do tecnico" required>
+              <div class="invalid-feedback">
+                por favor forneça a assinatura do tecnico.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom16">Assinatura do Cliente:</label>
+              <input type="text" class="form-control" id="validationCustom16" placeholder="assinatura do tecnico" required>
+              <div class="invalid-feedback">
+                por favor forneça assinatura do cliente.
+              </div>
+            </div>
+            
+          </div>
+        </div>
+</div>
+        <div class="form-group"  >
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Concorde com os termos e condições
+            </label>
+            <div class="invalid-feedback">
+              voce deve concorda antes de enviar.
+            </div>
+          </div>
+         
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar formulario</button>
+        <div>
+            <footer>Assitência técnica para celulares Av:afonso pena Número 324 Centro-br.</footer>
+        </div>
+      </div>
+      </form>
+        <script src="./scripts/models/Contrato.js"></script>
+      <script>
+        //ela chama o banco de dados firebase
+        var db = firebase.database();
+        //uma referencia onde esta chamando o banco de dados
+        var rootRef = db.ref("Contratos");
+       
+        // filho da referencia
+        
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+              if (form.checkValidity() === false) {
+                form.classList.add('was-validated');
+              }else{
+                var nome = document.getElementById('validationCustom01').value;
+                var sobreNome = document.getElementById('validationCustom02').value;
+                var email = document.getElementById('validationCustomUsername').value;
+                var bairro = document.getElementById('validationCustom03').value;
+                var endereco = document.getElementById('validationCustom04').value;
+                var telefone = document.getElementById('validationCustom05').value;
+                var aparelho = document.getElementById('validationCustom06').value;
+                var modelo = document.getElementById('validationCustom07').value;
+                var serial = document.getElementById('validationCustom08').value;
+                var serialAcessorios = document.getElementById('validationCustom09').value;
+                var defeitodeClarado = document.getElementById('validationCustom10').value;
+                var dataDeOrcamento = document.getElementById('validationCustom11').value;
+                var dataDeEntrega = document.getElementById('validationCustom12').value;
+                var valor = document.getElementById('validationCustom13').value;
+                var tecnico = document.getElementById('validationCustom14').value;
+                var assinaturaDoTecnico = document.getElementById('validationCustom15').value;
+                var assinaturaDoCliente = document.getElementById('validationCustom16').value;
+                var tipoAcessorio = [];
+                if(document.getElementById("customRadioInline1").checked){tipoAcessorio.push("bateria")}
+                if(document.getElementById("customRadioInline2").checked){tipoAcessorio.push("tampa")}
+                if(document.getElementById("customRadioInline3").checked){tipoAcessorio.push("carregador")}
+                if(document.getElementById("customRadioInline4").checked){tipoAcessorio.push("outros")}
+                var contrato = new Contrato(nome, sobreNome, email, bairro, endereco, telefone, aparelho, modelo, 
+                serial, tipoAcessorio,  serialAcessorios, defeitodeClarado, dataDeOrcamento, dataDeEntrega, valor, tecnico,
+                 assinaturaDoTecnico, assinaturaDoCliente);    
+                 //função criada para que o dados e enviado automaricamente          
+                  rootRef.push(contrato.toJson())
+                  .then(function(el){
+                    window.location.href = "./contrato.html?path="+el.key+"&id="+1;
+                  })
+                  .catch(function(err){console.log(err)});
+                 }
+             
+              
+            }, false);
+          });
+        }, false);
+      })();
+
+      </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
