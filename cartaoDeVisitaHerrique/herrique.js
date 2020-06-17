@@ -15,5 +15,5 @@ $(document).on('click', '.flip', function () {
   const contactMe = document.querySelector("#contactMe");
   
   contactMe.onclick = ()=>{
-      window.open("https://api.whatsapp.com/send?phone=5531993680945",'_blank');
+      window.open("https://api.whatsapp.com/send?phone=553193680945",'_blank');
     }
