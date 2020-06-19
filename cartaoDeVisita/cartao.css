@@ -52,7 +52,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #36b9c1, rgba(116, 211, 216, 0) 50%, rgba(255, 255, 255, 0.5));
+  background: linear-gradient(to right, #35c409, rgba(116, 211, 216, 0) 50%, rgba(255, 255, 255, 0.5));
   transform: translate3d(0, 0, 0);
 }
 .namecard.front:hover .wave.left {
@@ -144,7 +144,7 @@ p {
     font-size: 20px;
     border: 0;
     outline: none;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(83, 200, 239, 0.8)), color-stop(96%, rgba(81, 106, 204, 0.8)));
+    background: -webkit-gradient(linear, left top, right top, from(rgba(133, 157, 165, 0.8)), color-stop(96%, rgba(81, 106, 204, 0.8)));
     background: linear-gradient(to right, rgba(18, 112, 116, 0.8) 0%, rgba(26, 194, 138, 0.8) 96%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     color: rgb(0, 0, 0);
