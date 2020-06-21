@@ -1,0 +1,121 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.nav-bar > *:first-child{
+    flex: 1;
+}
+
+.nav-bar, .nav-bar-secondary-container {
+    box-sizing: border-box;
+    height: 70px;
+    width: 100%;
+    min-width: 850px;
+    background-color: #364651;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    color: #869097;
+    font-size: 16px;
+}
+
+.nav-bar>div, .nav-bar-secondary-container>div {
+    padding: 15px;
+    transition: color .2s ease;
+}
+
+.nav-bar>div:hover, .nav-bar-secondary-container>div:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.fa-free-code-camp, .fa-inbox, .fa-calendar, .fa-files-o, .fa-line-chart, .fa-user {
+    margin: 10px;
+    transform: scale(1.2);
+    color: #869097;
+}
+
+.fa-free-code-camp.active, .fa-inbox.active, .fa-calendar.active, .fa-files-o.active, .fa-line-chart.active, .fa-user.active {
+    color: #49AFEA;
+}
+
+.fa-free-code-camp.active~span, .fa-inbox.active~span, .fa-calendar.active~span, .fa-files-o.active~span, .fa-line-chart.active~span, .fa-user.active~span {
+    color: white;
+}
+
+.nav-bar-secondary-container {
+    background-color: white;
+    color: #566F81;
+}
+
+.leaderboard-container {
+    box-sizing: border-box;
+    padding: 50px 0;
+    width: 100%;
+    min-width: 850px;
+    background-color: #F1F4F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-table {
+    width: 600px;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.leaderboard-name-header {
+    text-align: left;
+    padding: 0 20px;
+}
+
+.leaderboard-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leaderboard-name-avatar {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    margin: 20px;
+}
+
+.tabs>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.tabs-recent-alltime {
+    padding: 15px;
+    border-bottom: 2px solid transparent;
+}
+
+.tabs-recent-alltime>a {
+    text-decoration: none;
+    color: #566F81;
+}
+
+.tabs-recent-alltime.is-active {
+    border-bottom: 2px solid #49AFEA;
+}
+
+.tabs-recent-alltime.is-active>a {
+    color: #49AFEA;
+}
+
+.tabs-recent-alltime:hover {
+    cursor: pointer;
+}
+
+.tabs-recent-alltime:hover>a {
+    color: #49AFEA;
+}

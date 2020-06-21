@@ -86,13 +86,13 @@
         <div class="content">
           <h2>Esqueceu sua senha?</h2>
           <small>Digite seu e-mail para que possamos enviar um link de redefinição para sua senha</small>
-          <form onsubmit="event.preventDefault()">
+          <form id="definirSenha">
             <div class="field-wrapper">
               <input type="text" name="email" placeholder="email">
               <label>e-mail</label>
             </div>
             <div class="field-wrapper">
-              <a class="button" href="#">
+              <a class="button" href="#" onclick="showThankYou(); formRedefinirSenha();">
                 <span></span>
                 <span></span>
                 <span></span>

@@ -7,18 +7,15 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles/contrato.css">
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/4f3de746ea.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css">
+  <link rel="stylesheet" href="./styles/navbar.css">
   <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
-  <!--para banco de dados-->
   <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
   <script>
-    // Your web app's Firebase configuration
-    // codigo puxado do firebase
-    var firebaseConfig = {
+    firebase.initializeApp({
       apiKey: "AIzaSyDqacSrjWhq_QvhaV0GDrzGORi7IeIFZcM",
       authDomain: "formulario-df-celulares.firebaseapp.com",
       databaseURL: "https://formulario-df-celulares.firebaseio.com",
@@ -27,15 +24,36 @@
       messagingSenderId: "1094158041523",
       appId: "1:1094158041523:web:c8a6db8e746014d1298bc6",
       measurementId: "G-S0SDSZ34JC"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    });
     firebase.analytics();
   </script>
   <title>listar contratot</title>
+  <script src="./scripts/MultiStorager.js"></script>
+  <script src="./scripts/models/FirestoreObject.js"></script>
+  <script src="./scripts/models/Usuario.js"></script>
+  <script src="./scripts/helpers/Usuario.js"></script>
+  <script src="./scripts/models/Contrato.js"></script>
 </head>
 
 <body>
+  <div class="nav-bar">
+    <div class="nav-bar-fcc active">
+      <i class="fa fa-free-code-camp active" aria-hidden="true"></i>
+      <span>Oasis Technology</span>
+    </div>
+    <div class="nav-bar-inbox">
+      <i class="fa fa-inbox" aria-hidden="true"></i>
+      <span>Contratos</span>
+    </div>
+    <div class="nav-bar-activity">
+      <i class="fa fa-line-chart" aria-hidden="true"></i>
+      <span>Atividade</span>
+    </div>
+    <div class="nav-bar-user">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <span>Usuário</span>
+    </div>
+  </div>
 
   <table class="table table-bordered table-event-mouse">
     <thead>
@@ -69,56 +87,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 
-  <script src="./scripts/models/FirestoreObject.js"></script>
-  <script src="./scripts/models/Contrato.js"></script>
-  <script>
-
-    class appentTr {
-      constructor() {
-        this.tr = document.createElement("tr");
-        this.id = 0;
-      }
-      onClick(fn) {
-        if (typeof fn === "function") {
-          this.tr.onclick = fn;
-        }
-      }
-      appent(str) {
-        var td = document.createElement("td");
-        td.appendChild(document.createTextNode(str));
-        this.tr.appendChild(td);
-      }
-      showTo(id) {
-        document.getElementById(id).appendChild(this.tr);
-      }
-    }
-
-    var db = firebase.database();
-    var ref = db.ref("Contratos");
-    ref.once("value").then(function (contratos) {
-      var index = 1;
-      contratos.forEach(element => {
-        var contrato = new Contrato().parse(null, element.val());
-        var tabela01 = new appentTr();
-        tabela01.appent(index);
-        tabela01.appent(contrato.nome);
-        tabela01.appent(contrato.sobreNome);
-        tabela01.appent(contrato.email);
-        tabela01.appent(contrato.bairro);
-        tabela01.appent(contrato.endereco);
-        tabela01.appent(contrato.telefone);
-        tabela01.id = index;
-        tabela01.onClick(function () {
-          window.location.href = "./contrato.html?path=" + element.key + "&id=" + tabela01.id;
-        });
-        tabela01.showTo("tabela01");
-
-        console.log(contrato);
-        index++;
-      });
-    })
-      .catch(function (err) { console.log(err) });
-  </script>
+  <script src="./scripts/listaContrato.js"></script>
 </body>
 
 

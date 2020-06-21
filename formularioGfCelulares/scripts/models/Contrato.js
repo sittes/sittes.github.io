@@ -1,7 +1,7 @@
 class Contrato extends FirestoreObject {
       constructor(path, nome, sobreNome, email, bairro, endereco, telefone, aparelho, modelo, serial,
             tipoAcessorio, serialAcessorios, defeitodeClarado, dataDeOrcamento, dataDeEntrega, valor,
-            tecnico, assinaturaDoTecnico, assinaturaDoCliente) {
+            tecnico, assinaturaDoTecnico, assinaturaDoCliente, pathUser) {
             super(path);
             this.nome = nome;
             this.sobreNome = sobreNome;
@@ -21,5 +21,6 @@ class Contrato extends FirestoreObject {
             this.assinaturaTecnico = assinaturaDoTecnico;
             this.assinaturaDoCliente = assinaturaDoCliente;
             this.serialAcessorios = serialAcessorios;
+            this.pathUser = pathUser;
       }
 }

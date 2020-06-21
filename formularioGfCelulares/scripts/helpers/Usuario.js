@@ -73,11 +73,23 @@ window.criarUsuario = function(usuario, senha){
                 resolve(usuario);
             })
             .catch(function(err){
-                reject(usuario);
+                reject(err);
             });
         })
         .catch(function(err){
-            reject(usuario);
+            reject(err);
+        });
+    });
+}
+
+window.redefinirSenha = function(email){
+    return new Promise(function(resolve,reject){
+        firebase.auth().sendPasswordResetEmail(email)
+        .then(function(){
+            resolve(email);
+        })
+        .catch(function(err){
+            reject(err);
         });
     });
 }

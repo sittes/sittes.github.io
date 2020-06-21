@@ -1,19 +1,17 @@
-$(document).on('click', '.flip', function () {
-    let card = $(this).closest('.card');
-    if (card.hasClass('flip-it')) card.removeClass('flip-it');else
-    card.addClass('flip-it');
-  });
-  
-  
-  $('.card').each(function () {
-    let href = $(this).data('href');
-    $(this).find('.image').css({
-      backgroundImage: ['url(', href, ')'].join('') });
-  
-  });
-  
+
   const contactMe = document.querySelector("#contactMe");
+
+  const contactMee = document.querySelector("#contatoMee");
+
+  contactMee.onclick = function(){
+    window.open ("https://www.instagram.com/henriqueeletronicos1/?hl=pt-br",'_blank');
+  }
   
-  contactMe.onclick = ()=>{
+  contactMe.onclick = function(){
       window.open("https://api.whatsapp.com/send?phone=553193680945",'_blank');
     }
+
+  
+  
+
+   

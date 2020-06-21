@@ -6,7 +6,7 @@ function init(){
       window.location.href = './listaContrato.html';
   })
   .catch(function(err){
-    console.log(err)
+    //console.log(err)
   });
 }
 
@@ -72,6 +72,29 @@ function cadastrarsuario(event){
   });
 
   return false;
+}
+
+function formRedefinirSenha(event){
+  if(event && "preventDefault" in event){
+    event.preventDefault();
+  }
+
+  var form = document.getElementById("definirSenha");
+
+  var email = form.email;
+
+  if(email.value === ""){
+    return false;
+  }
+
+  redefinirSenha(email.value)
+  .then(function(){
+    email.value = "";
+    showLogin();
+  })
+  .catch(function(err){
+    showForgotPassword();
+  });
 }
 
 window.onload = function(){

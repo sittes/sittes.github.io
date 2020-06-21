@@ -47,7 +47,7 @@ p {
 .namecard.front:after {
   content: "";
   position: absolute;
-  display: block;
+  display: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -83,6 +83,28 @@ p {
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
 }
 
+.namecard > *{
+  z-index: 1;
+}
+
+.namecard .wave-contant{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+.namecard .contant{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9;
+}
+
 .wave {
   width: 700px;
   height: 700px;
@@ -94,6 +116,7 @@ p {
   transform-origin: 50% 48%;
   transition: left 2s;
   animation: drift 3000ms infinite linear;
+  z-index: 0 !important;
 }
 .wave.-three {
   animation: drift 3500ms infinite linear;
@@ -113,9 +136,7 @@ p {
 }
 
 .title {
-  position: absolute;
-  top: 0;
-  left: 4%;
+  position: relative;
   width: 100%;
   z-index: 1;
   line-height: 230px;
@@ -126,12 +147,13 @@ p {
   font-size: 11px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   text-indent: 0.3em;
+  text-align: center;
 }
 .title > p{
-    line-height: 150px;
+    line-height: 60px;
     color: #000000;
     letter-spacing: 12px;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 @keyframes drift {
@@ -144,7 +166,7 @@ p {
 }
 .contact-me{
     margin-left: 90px;
-    margin-top: 120px;
+    margin-top: 60px;
     color: rgb(15, 17, 15);
     border-radius: 5px;
     font-size: 20px;
@@ -165,5 +187,28 @@ p {
     -webkit-transition: 0.3s;
     transition: 0.3s;
    
+}
+.contatome{
+  margin-left: 90px;
+  margin-top: 60px;
+  color: rgb(15, 17, 15);
+  border-radius: 5px;
+  font-size: 20px;
+  border: 0;
+  outline: none;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(35, 163, 57, 0.8)), color-stop(96%, rgba(14, 207, 24, 0.8)));
+  background: linear-gradient(to right, rgba(97, 207, 45, 0.8) 0%, rgba(49, 194, 30, 0.8) 96%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  
+  color: rgb(0, 0, 0);
+  padding: 12px 16px;
+  width: 50%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Jost", sans-serif;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
