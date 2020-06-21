@@ -59,9 +59,11 @@ window.addEventListener('load', function () {
                 rootRef.push(contrato.toJson())
                     .then(function (el) {
                         inUser.contratosCount = typeof inUser.contratosCount !== "number" ? 1 : inUser.contratosCount + 1;
-                        
+
                         atualizarUsuario(inUser).then(function () {
-                            window.location.href = "./contrato.html?path=" + el.key + "&id=" + 1;
+                            localStorage.setItem('contratoPath', element.key);
+                            localStorage.setItem('contratoId', tabela01.id);
+                            window.location.href = "./contrato.html";
                         })
                         .catch(function (err) { console.log(err) });
                     })
