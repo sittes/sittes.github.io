@@ -82,6 +82,18 @@ window.criarUsuario = function(usuario, senha){
     });
 }
 
+window.atualizarUsuario = function(usuario){
+    return new Promise(function(resolve,reject){
+        firebase.database().ref("Usuarios").child(usuario.path.split("/").pop()).set(usuario.toJson())
+        .then(function(){
+            resolve(usuario);
+        })
+        .catch(function(err){
+            reject(err);
+        });
+    });
+}
+
 window.redefinirSenha = function(email){
     return new Promise(function(resolve,reject){
         firebase.auth().sendPasswordResetEmail(email)

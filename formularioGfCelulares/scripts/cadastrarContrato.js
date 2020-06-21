@@ -58,7 +58,12 @@ window.addEventListener('load', function () {
                 //função criada para que o dados e enviado automaricamente          
                 rootRef.push(contrato.toJson())
                     .then(function (el) {
-                        window.location.href = "./contrato.html?path=" + el.key + "&id=" + 1;
+                        inUser.contratosCount = typeof inUser.contratosCount !== "number" ? 1 : inUser.contratosCount + 1;
+                        
+                        atualizarUsuario(inUser).then(function () {
+                            window.location.href = "./contrato.html?path=" + el.key + "&id=" + 1;
+                        })
+                        .catch(function (err) { console.log(err) });
                     })
                     .catch(function (err) { console.log(err) });
             }
