@@ -151,9 +151,9 @@ p {
 }
 .title > p{
     line-height: 60px;
-    color: #000000;
+    color: #00000079;
     letter-spacing: 12px;
-    font-size: 10px;
+    font-size: 20px;
 }
 
 @keyframes drift {
