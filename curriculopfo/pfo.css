@@ -1,0 +1,23 @@
+table{
+    background:blue;
+  }
+  
+  td{
+    background:white;
+  }
+  
+  body{
+    background:blue;
+  }
+  
+  img{
+    display:block;
+  }
+  
+  h3{
+    color:blue;
+  }
+  h2{
+    color:blue;
+    font-family: Sans-serif;
+  }
