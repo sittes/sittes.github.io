@@ -172,8 +172,8 @@ p {
     font-size: 20px;
     border: 0;
     outline: none;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(35, 163, 57, 0.8)), color-stop(96%, rgba(14, 207, 24, 0.8)));
-    background: linear-gradient(to right, rgba(97, 207, 45, 0.8) 0%, rgba(49, 194, 30, 0.8) 96%);
+    background: -webkit-gradient(linear, left top, right top, from(rgba(230, 226, 49, 0.8)), color-stop(96%, rgba(231, 235, 17, 0.8)));
+    background: linear-gradient(to right, rgba(223, 226, 49, 0.8) 0%, rgba(232, 245, 59, 0.8) 96%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     
     color: rgb(0, 0, 0);
@@ -196,7 +196,7 @@ p {
   font-size: 20px;
   border: 0;
   outline: none;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(35, 163, 57, 0.8)), color-stop(96%, rgba(14, 207, 24, 0.8)));
+  background: -webkit-gradient(linear, left top, right top, from(rgba(223, 226, 50, 0.8)), color-stop(96%, rgba(14, 207, 24, 0.8)));
   background: linear-gradient(to right, rgba(216, 99, 52, 0.8) 0%, rgba(214, 125, 42, 0.8) 96%);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   
