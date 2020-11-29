@@ -11,7 +11,7 @@ contactMe.onclick = ()=>{
   }
 
   contactemail.onclick = () =>{
-      window.open("https://mail.google.com/mail/u/0/#inbox",'_blanck')
+      window.open("https://mail.google.com/mail/u/0/#inbox",target="_blank")
   }
 
 const handleButtonClick = (e) => {
