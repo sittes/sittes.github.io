@@ -172,8 +172,8 @@ p {
     font-size: 20px;
     border: 0;
     outline: none;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(230, 226, 49, 0.8)), color-stop(96%, rgba(231, 235, 17, 0.8)));
-    background: linear-gradient(to right, rgba(223, 226, 49, 0.8) 0%, rgba(232, 245, 59, 0.8) 96%);
+    background: -webkit-gradient(linear, left top, right top, from(rgba(85, 230, 49, 0.8)), color-stop(96%, rgba(61, 235, 17, 0.8)));
+    background: linear-gradient(to right, rgba(64, 226, 49, 0.8) 0%, rgba(102, 245, 59, 0.8) 96%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     
     color: rgb(0, 0, 0);
