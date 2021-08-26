@@ -1,0 +1,219 @@
+@charset "UTF-8";
+* {
+  font-family: "Raleway", sans-serif, 微軟正黑體;
+  text-decoration: none;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  margin: 0;
+  background-color: #e0e0e2;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  letter-spacing: 1px;
+  line-height: 22px;
+  padding: 0;
+  margin: 0;
+  color: #666;
+  font-size: 10px;
+}
+
+.namecard {
+  width: 350px;
+  height: 180px;
+  padding: 25px;
+  margin: auto;
+  position: relative;
+  background: linear-gradient(#f2f2f2, #eee);
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  transition: all 0.5s;
+}
+.namecard.front:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #071d9c, rgba(#17317a) 50%, rgba(246, 255, 243, 0.5));
+  transform: translate3d(0, 0, 0);
+}
+.namecard.front:hover .wave.left {
+  left: 80px;
+}
+.namecard.back {
+  letter-spacing: 1px;
+  line-height: unset;
+  color: #383d3b;
+  font-size: 10px;
+}
+.namecard.back .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: -3px;
+}
+.namecard.back .position {
+  color: #081111;
+}
+.namecard.back .intro {
+  padding-right: 150px;
+}
+.namecard.back:hover .wave.right {
+  left: 80px;
+}
+.namecard:hover {
+  transform: translate3d(-5px, -5px, 0);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.namecard > *{
+  z-index: 1;
+}
+
+.namecard .wave-contant{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+.namecard .contant{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9;
+}
+
+.wave {
+  width: 700px;
+  height: 700px;
+  opacity: 0.4;
+  position: absolute;
+  left: 0;
+  background: #1000ec;
+  border-radius: 40%;
+  transform-origin: 50% 48%;
+  transition: left 2s;
+  animation: drift 3000ms infinite linear;
+  z-index: 0 !important;
+}
+.wave.-three {
+  animation: drift 3500ms infinite linear;
+}
+.wave.-two {
+  animation: drift 5000ms infinite linear;
+  background-color: yellow;
+  opacity: 0.1;
+}
+.wave.left {
+  margin-top: -50px;
+  margin-left: -400px;
+}
+.wave.right {
+  margin-top: -250px;
+  margin-left: 270px;
+}
+
+.title {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  line-height: 230px;
+  transform: translate3d(0, 0, 0);
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  font-size: 11px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  text-indent: 0.3em;
+  text-align: center;
+}
+.title > p{
+    line-height: 60px;
+    color: #00000079;
+    letter-spacing: 12px;
+    font-size: 20px;
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
+.contact-me{
+    margin-left: 90px;
+    margin-top: 60px;
+    color: rgb(15, 17, 15);
+    border-radius: 5px;
+    font-size: 20px;
+    border: 0;
+    outline: none;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(49, 67, 230, 0.8)), color-stop(96%, rgba(61, 235, 17, 0.8)));
+    background: linear-gradient(to right, rgba(64, 226, 49, 0.8) 0%, rgba(102, 245, 59, 0.8) 96%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    
+    color: rgb(0, 0, 0);
+    padding: 12px 16px;
+    width: 50%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Jost", sans-serif;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+   
+}
+.contatome{
+  margin-left: 90px;
+  margin-top: 60px;
+  color: rgb(15, 17, 15);
+  border-radius: 5px;
+  font-size: 20px;
+  border: 0;
+  outline: none;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(223, 226, 50, 0.8)), color-stop(96%, rgba(14, 207, 24, 0.8)));
+  background: linear-gradient(to right, rgba(216, 99, 52, 0.8) 0%, rgba(214, 125, 42, 0.8) 96%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  
+  color: rgb(0, 0, 0);
+  padding: 12px 16px;
+  width: 50%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Jost", sans-serif;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.mudarcor{
+    color: black;
+}
+.name{
+    text-transform: uppercase;
+}
