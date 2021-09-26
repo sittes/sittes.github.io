@@ -1,0 +1,115 @@
+import smtplib
+import email.message
+
+server = smtplib.SMTP('smtp.gmail.com:587')
+
+email_content = """
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+   <title>Tutsplus Email Newsletter</title>
+        <style type="text/css">
+            a {color: #d80a3e;}
+            body, #header h1, #header h2, p {margin: 0; padding: 0;}
+            #main {border: 1px solid #cfcece;}
+            img {display: block;}
+            #top-message p, #bottom p {color: #3f4042; font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
+            #header h1 {color: #ffffff !important; font-family: "Lucida Grande", sans-serif; font-size: 24px; margin-bottom: 0!important; padding-bottom: 0; }
+            #header p {color: #ffffff !important; font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif; font-size: 12px;  }
+            h5 {margin: 0 0 0.8em 0;}
+            h5 {font-size: 18px; color: #444444 !important; font-family: Arial, Helvetica, sans-serif; }
+            p {font-size: 12px; color: #444444 !important; font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif; line-height: 1.5;}
+        </style>
+</head>
+
+<body>
+
+
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="e4e4e4">
+    <tr>
+        <td>
+        <table id="top-message" cellpadding="20" cellspacing="0" width="600" align="center">
+    <tr>
+        <td align="center">
+            <p><a href="#">View in Browser</a></p>
+        </td>
+    </tr>
+</table>
+
+<table id="main" width="600" align="center" cellpadding="0" cellspacing="15" bgcolor="ffffff">
+    <tr>
+      <td>
+        <table id="header" cellpadding="10" cellspacing="0" align="center" bgcolor="8fb3e9">
+          <tr>
+            <td width="570" align="center"  bgcolor="#d80a3e"><h1>Arena Marcas e Patentes</h1></td>
+          </tr>
+          <tr>
+            <td width="570" align="right" bgcolor="#d80a3e"><p>Setembro 2021</p></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td>
+                                                                   
+      </td>                                            
+    </tr>         
+    <tr>     
+      <td>
+        <table id="content-4" cellpadding="0" cellspacing="0" align="center">
+          <tr>
+            <td width="250" valign="top">
+              <h5>Email automatico da arena marca e patentes</h5>
+              <p>
+                 Ola. Somos da empresa Arena Marcas e Patentes meu nome e xxxxxxxxxxx  lembramos que sua fatura esta
+                 esta em atraso. Podemos negociar uma nova data e uma melhor forma de pagamento. Entre em
+                 contato conosco, sera um prazer te  ajudar. Caso o pagamento tenha sido efetuado, por favor, 
+                 desconsidere esta menssagem.
+             </p>
+            </td>
+           
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+
+  </table>
+  <table id="bottom" cellpadding="20" cellspacing="0" width="600" align="center">
+    <tr>
+      <td align="center">
+        <p>Sites Arena Marcas e Patentes</p>
+        <p><a href="https://registrodemarca.in/">Arena MG</a> | <a href="https://registrodemarca.me/">Arena Sp</a> | <a href="https://registrodemarca.arenamarcas.com.br/">Arena BR</a></p>
+      </td>
+    </tr>
+  </table><!-- top message -->
+</td></tr></table><!-- wrapper -->
+
+</body>
+</html>
+
+
+"""
+
+msg = email.message.Message()
+msg['Subject'] = 'Arena Marcas e Patentes'
+
+msg['From'] = 'paulo.fagnerdeoliveira@gmail.com'
+msg['To'] = 'paulofagner32@yahoo.com.br'
+password = "maquininha123"
+msg.add_header('Content-Type', 'text/html')
+msg.set_payload(email_content)
+
+s = smtplib.SMTP('smtp.gmail.com: 587')
+s.starttls()
+
+# Login Credentials for sending the mail
+s.login(msg['From'], password)
+
+s.sendmail(msg['From'], [msg['To']], msg.as_string())
