@@ -1,0 +1,120 @@
+
+import smtplib
+import email.message
+
+server = smtplib.SMTP('smtp.gmail.com:587')
+
+email_content = """
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+   <title>Tutsplus Email Newsletter</title>
+   <style type="text/css">
+        a {color: #141112;}
+        body, #header h1, #header h2, p {margin: 0; padding: 0;}
+        #main {border: 1px solid #cfcece; height: 600px;}
+        img {display: block;}
+        #top-message p, #bottom p {color: #3f4042; font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
+        #header h1 {color: #ffffff !important; font-family: "Lucida Grande", sans-serif; font-size: 24px; margin-bottom: 0!important; padding-bottom: 0; }
+        #header p {color: #ffffff !important; font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif; font-size: 12px;  }
+        h5 {margin: 0 0 0.8em 0;}
+        h5 {font-size: 18px; color: #444444 !important; font-family: Arial, Helvetica, sans-serif; }
+        p {font-size: 12px; color: #444444 !important; font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif; line-height: 1.5;}
+   </style>
+</head>
+
+<body>
+
+
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="e4e4e4"><tr><td>
+<table id="top-message" cellpadding="20" cellspacing="0" width="600" align="center">
+    <tr>
+      <td align="center">
+        <p><a href="https://registrodemarca.arenamarcas.com.br/">Arena Marcas e Patentes</a></p>
+      </td>
+    </tr>
+  </table>
+
+<table id="main" width="600" align="center" cellpadding="0" cellspacing="15" bgcolor="ffffff">
+    <tr>
+      <td>
+        <table id="header" cellpadding="10" cellspacing="0" align="center" bgcolor="8fb3e9">
+          <tr>
+            <td width="570" align="center"  bgcolor="#d80a3e"><h1>Marcas e patentes</h1></td>
+          </tr>
+          <tr>
+            <td width="570" align="right" bgcolor="#d80a3e"><p>Setembro 2021</p></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table id="content-3" cellpadding="0" cellspacing="0" align="center">
+          <tr>
+            
+              <td width="15"></td>
+            <td width="250" valign="top" bgcolor="d0d0d0" style="padding:5px;">
+                <img src="data:image/png;base64,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" width ="250" height="150" />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table id="content-4" cellpadding="0" cellspacing="0" align="center">
+          <tr>
+           
+            <td width="15"></td>
+            <td width="200" valign="top">
+              <h5>Email automatico da arena marca e patentes</h5>
+              <p> Ola. Somos da empresa Arena Marcas e Patentes meu nome e xxxxxxxxxxx  lembramos que sua fatura esta
+                 esta em atraso. Podemos negociar uma nova data e uma melhor forma de pagamento. Entre em
+                 contato conosco, sera um prazer te  ajudar. Caso o pagamento tenha sido efetuado, por favor, 
+                 desconsidere esta menssagem.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+
+  </table>
+  <table id="bottom" cellpadding="20" cellspacing="0" width="600" align="center">
+    <tr>
+      <td align="center">
+        <p>Empresa Arena Marcas e Patentes</p>
+        <p><a href="https://registrodemarca.in/">Arena MG</a> | <a href="https://registrodemarca.me/">Arena SP</a> | <a href="https://registrodemarca.arenamarcas.com.br/">Arena BR</a></p>
+      </td>
+    </tr>
+  </table><!-- top message -->
+</td></tr></table><!-- wrapper -->
+
+</body>
+</html>
+
+
+"""
+alvos = ["paulofagner32@yahoo.com.br"]
+
+password = "minha senha do email"
+from_ = 'paulo.fagnerdeoliveira@gmail.com'
+
+s = smtplib.SMTP('smtp.gmail.com: 587')
+s.starttls()
+
+# Login Credentials for sending the mail
+s.login(from_, password)
+
+for alvo in alvos:
+    msg = email.message.Message()
+    msg['Subject'] = 'Tutsplus Newsletter'
+    msg['From'] = from_
+    msg['To'] = alvo
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(email_content)
+    s.sendmail(msg['From'], [msg['To']], msg.as_string())
