@@ -32,5 +32,9 @@
     width: 35px;
     margin-top: -90px;
     margin-left: 230px;
-    
 }
+.clock {
+    font-size: 2em;
+    margin-left: 310px;
+    margin-bottom: -80px;
+  }
