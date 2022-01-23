@@ -1,0 +1,36 @@
+#inputCalculadora{
+    font-size: 24px;
+    width: 100%;
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+   }
+   .areaCalculadora{
+    max-width: 600px;
+    margin: 0 auto;
+   }
+   .row div{
+    padding: 0
+   }
+   .row div button{
+    width: 100%;
+   }
+  
+
+   .bg-success {
+    background-color: #0140ec!important;
+    width: 50%;
+    margin-left: -15px;
+    
+}
+.container{
+    background-color: rgb(241, 248, 237);
+    margin-top: 30px;
+}
+.rounded {
+    border-radius: 0.25rem!important;
+    width: 35px;
+    margin-top: -90px;
+    margin-left: 230px;
+    
+}
