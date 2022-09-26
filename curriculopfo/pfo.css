@@ -4,6 +4,7 @@ table{
   
   td{
     background:white;
+       padding: 10px;
   }
   
   body{
@@ -21,6 +22,3 @@ table{
     color:blue;
     font-family: Sans-serif;
   }
-p{
-   padding: 10px;
-}
